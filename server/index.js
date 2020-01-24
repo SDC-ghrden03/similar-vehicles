@@ -22,6 +22,21 @@ connection.connect((err) => {
     }
 }); 
 
+app.get('/api/similar_vehicles', (req, res, next) => {
+    const condition = 'Sedan'; 
+
+    const getQueryString = `SELECT * FROM vehicle WHERE class = "${condition}"`; 
+
+    connection.query(getQueryString, (err, results) => {
+        if (err) {
+            res.status(400).send(err);
+        } else {
+            res.status(200).json({results: results}); 
+        }
+    }); 
+}); 
+
+
 
 app.listen(PORT, () => {
     console.log(`Listening from: ${PORT}`); 

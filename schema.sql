@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS vehicle (
 INSERT INTO vehicle (year, make, model, class, price, miles, engine_L_Cyl, transmission, exterior_color, interior_color, picture)
     VALUES (2017, 'Acura', 'MDX', 'SUV', '$26,929', '36,338', '3.5L V-6 Cyl', 'Automatic', 'Lunar Silver', 'Black', 'https://a2ee4b017484f99db28d-250ec659588d774a6f990238e39cf450.ssl.cf1.rackcdn.com/5FRYD4H51HB000535/393d5e0bb0d20777f157a40cd8630803.jpg'), 
     (2016, 'Nissan', 'Rogue', 'SUV', '$16,989', '17,846', '2.5L I-4 Cyl', 'Automatic', 'Magnetic Black', 'Charcoal', 'https://www.ashevilletoyota.com/assets/stock/colormatched_01/white/640/cc_2016nis110007_01_640/cc_2016nis110007_01_640_g41.jpg'),
-    (2019, 'Toyota', 'Highlander', 'SUV', '$31,689', '21,433', '3.5L V-6 Cyl', 'Automatic', 'Shoreline Blue Pearl', 'Black', 'https://blogmedia.dealerfire.com/wp-content/uploads/sites/715/2018/11/2019-Toyota-Highlander-in-Shoreline-Blue-Pearledit_o.jpg'); 
+    (2019, 'Toyota', 'Highlander', 'SUV', '$31,689', '21,433', '3.5L V-6 Cyl', 'Automatic', 'Shoreline Blue Pearl', 'Black', 'https://blogmedia.dealerfire.com/wp-content/uploads/sites/715/2018/11/2019-Toyota-Highlander-in-Shoreline-Blue-Pearledit_o.jpg'),
+    (2018, 'Nissan', 'Sentra', 'Sedan', '$11,289', '39,225', '1.8L I-4 Cyl', 'Automatic', 'Fresh Powder ', 'Charcoal', 'https://inventory-dmg.assets-cdk.com/evox/color_0640_032/12626/12626_cc0640_032_QM1.jpg'); 
 
 
 
