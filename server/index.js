@@ -6,6 +6,9 @@ const mysql = require('mysql');
 const PORT = process.env.PORT || 3000;
 const app = express(); 
 
+app.use(express.static(__dirname + '/../client/dist')); 
+app.use(express.json()); 
+
 // Database integration 
 let connection = mysql.createConnection({
     host: 'localhost',
@@ -22,8 +25,8 @@ connection.connect((err) => {
     }
 }); 
 
-app.get('/api/similar_vehicles', (req, res, next) => {
-    const condition = 'Sedan'; 
+app.get('/api/similar_vehicles', (req, res) => {
+    const condition = 'SUV'; 
 
     const getQueryString = `SELECT * FROM vehicle WHERE class = "${condition}"`; 
 

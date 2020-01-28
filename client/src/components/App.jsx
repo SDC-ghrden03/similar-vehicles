@@ -1,11 +1,24 @@
 import React from 'react';
 
-const App = () => {
-    return (
-        <div>
+class App extends React.Component{
+    constructor(props) {
+        super(props); 
+        this.state = {
+            similarVehicles: []
+        }; 
+    } 
 
-        </div>
-    );
-}
+    componentDidMount() {
+
+    } 
+
+    render() {
+        return(
+            <div className="similarVehiclesContainer">
+                <h1>Similar Vehicles</h1>
+            </div>
+        ); 
+    } 
+} 
 
 export default App;
