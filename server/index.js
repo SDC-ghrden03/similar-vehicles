@@ -28,7 +28,7 @@ connection.connect((err) => {
 app.get('/api/similar_vehicles', (req, res) => {
     const condition = 'SUV'; 
 
-    const getQueryString = `SELECT * FROM vehicle WHERE class = "${condition}"`; 
+    const getQueryString = `SELECT * FROM vehicle WHERE class = "${condition}" LIMIT 3`; 
 
     connection.query(getQueryString, (err, results) => {
         if (err) {
