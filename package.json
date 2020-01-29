@@ -5,29 +5,41 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "test": "jest"
   },
   "author": "Lizbeth Anaya Ramos",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.23.1",
+    "babel-jest": "^25.1.0",
     "babel-loader": "^6.3.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.23.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.18.0",
+    "jest": "^25.1.0",
     "webpack": "^2.7.0"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "enzyme": "^3.11.0",
     "eslint-config-airbnb": "^18.0.1",
     "express": "^4.15.0",
-    "jest": "^25.1.0",
     "mysql": "^2.16.0",
     "nodemon": "^2.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "sqlite3": "^4.0.6"
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

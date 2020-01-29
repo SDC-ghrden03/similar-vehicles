@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS vehicle (
     miles VARCHAR(25) NOT NULL,
     engine_L_Cyl VARCHAR(25) NOT NULL,
     transmission VARCHAR(25) NOT NULL,
-    exterior_color VARCHAR(25) NOT NULL,
+    exterior_color VARCHAR(50) NOT NULL,
     interior_color VARCHAR(50) NOT NULL,
     picture TEXT NOT NULL
 ); 
@@ -69,5 +69,25 @@ INSERT INTO vehicle (year, make, model, class, price, miles, engine_L_Cyl, trans
     (2017, 'Kia', 'Soul +', 'Hatchback', '$14,229', '29,876', '2.0L I-4 Cyl', 'Automatic', 'Bright Silver', 'Gray 2-Tone', 'https://pictures.dealer.com/e/echoparkcentennial/0328/046927e0fb8b9e2fbb619825f29190bfx.jpg?impolicy=resize&w=650'),
     (2016, 'Ford', 'Fiesta', 'Hatchback', '$9,999', '28,297', '1.6L I-4 Cyl', 'Automatic', 'Magnetic', 'Charcoal Black', 'https://pictures.dealer.com/e/echoparkcoloradosprings/1349/747e687ec41b611e51953676b839ead6x.jpg?impolicy=resize&w=650'),
     (2016, 'Ford', 'Fiesta', 'Hatchback', '$9,379', '37,845', '1.6L I-4 Cyl', 'Automatic', 'Shadow Black', 'Charcoal Black', 'https://pictures.dealer.com/e/echoparkdallas/0585/c44ef7a745a0031898877232d49c10e7x.jpg?impolicy=resize&w=650'),
-    (2017, 'Chevrolet', 'Cruze', 'Hatchback', '$13,279', '23,712', '1.4L I-4 Cyl', 'Automatic', 'Cajun Red Tintcoat', 'Jet Black', 'https://pictures.dealer.com/e/echoparkdallas/1947/2758e1ae40983f93b8a867204141f3d5x.jpg?impolicy=resize&w=650'); 
+    (2017, 'Chevrolet', 'Cruze', 'Hatchback', '$13,279', '23,712', '1.4L I-4 Cyl', 'Automatic', 'Cajun Red Tintcoat', 'Jet Black', 'https://pictures.dealer.com/e/echoparkdallas/1947/2758e1ae40983f93b8a867204141f3d5x.jpg?impolicy=resize&w=650'),
+    (2019, 'Nissan', 'Frontier', 'Truck', '$21,189', '24,000', '4.0L V-6 Cyl', 'Automatic', 'Gun', 'Steel', 'https://pictures.dealer.com/e/echoparkthornton/1527/e92c27abc394a6c718d5da30427b5865x.jpg?impolicy=resize&w=650'), 
+    (2019, 'Nissan', 'Frontier', 'Truck', '$21,409', '17,920', '4.0L V-6 Cyl', 'Automatic', 'Glacier White', 'Steel', 'https://pictures.dealer.com/e/echoparkthornton/1330/549f5c3ab5f87036fd4c42a90554db7ex.jpg?impolicy=resize&w=650'),
+    (2019, 'Nissan', 'Frontier', 'Truck', '$21,469', '24,200', '4.0L V-6 Cyl', 'Automatic', 'Glacier White', 'Steel', 'https://pictures.dealer.com/e/echoparkthornton/1718/bf9a0a7c3c9e013f4fb4a3fe3ca5d7f2x.jpg?impolicy=resize&w=650'),
+    (2017, 'Ram', '1500 Express', 'Truck', '$21,589', '38,376', '3.6L V-6 Cyl', 'Automatic', 'Brilliant Black Crystal Pearlcoat', 'Diesel Gray/Black', 'https://pictures.dealer.com/e/echoparkthornton/0930/7273d416e137b34f89f93fd4e4cbdf85x.jpg?impolicy=resize&w=650'),
+    (2016, 'Ram', '1500 Express', 'Truck', '$22,949', '14,777', '4.0L V-6 Cyl', 'Automatic', 'Brilliant Black Crystal Pearlcoat', 'Diesel Gray/Black', 'https://pictures.dealer.com/e/echoparkthornton/1013/3c644ca243ccd60ef34331da9318d8a2x.jpg?impolicy=resize&w=650'),
+    (2016, 'Chevrolet', 'Silverado', 'Truck', '$23,189', '29,113', '4.3L V-6 Cyl', 'Automatic', 'Black', 'Dark Ash/Jet Black', 'https://pictures.dealer.com/e/echoparkthornton/1874/920e1fd0f02fbeaf20fb4f711ff45c16x.jpg?impolicy=resize&w=650'),
+    (2017, 'Chevrolet', 'Silverado 1500 LT', 'Truck', '$23,389', '42,515', '4.3L V-6 Cyl', 'Automatic', 'Graphite', 'Dark Ash/Jet Black', 'https://pictures.dealer.com/e/echoparkthornton/1425/76e2885aecce8ff67acd7a752b95a73fx.jpg?impolicy=resize&w=650'),
+    (2017, 'Chevrolet', 'Silverado 1500', 'Truck', '$23,439', '36,527', '4.3L V-6 Cyl', 'Automatic', 'Black', 'Dark Ash/Jet Black', 'https://pictures.dealer.com/e/echoparkthornton/1992/2d4e53c7ce65a45f1a2c4f446d304c45x.jpg?impolicy=resize&w=650'),
+    (2016, 'GMC', 'Sierra 1500', 'Truck', '$23,809', '31,828', '4.3L V-6 Cyl', 'Automatic', 'Onyx Black', 'Dark Ash/Jet Black', 'https://pictures.dealer.com/e/echoparkthornton/0684/acb31527e099a082e8ff64876ca18d2dx.jpg?impolicy=resize&w=650'),
+    (2017, 'GMC', 'Sierra 1500', 'Truck', '$24,989', '21,816', '4.3L V-6 Cyl', 'Automatic', 'Summit White', 'Dark Ash/Jet Black', 'https://pictures.dealer.com/e/echoparkthornton/1198/bf292d19e24b60292b29dfeb77cb8e10x.jpg?impolicy=resize&w=650'),
+    (2016, 'GMC', 'Sierra 1500', 'Truck', '$27,489', '27,538', '5.3L V-8 Cyl', 'Automatic', 'Crimson Red Tintcoat', 'Jet Black/Spice Red', 'https://pictures.dealer.com/e/echoparkthornton/1581/940ddf90306070aa04a5485344e8afa4x.jpg?impolicy=resize&w=650'),
+    (2016, 'GMC', 'Sierra 1500', 'Truck', '$28,239', '43,431', '5.3L V-8 Cyl', 'Automatic', 'Quicksilver', 'Jet Black', 'https://pictures.dealer.com/e/echoparkcentennial/1708/ad39b993ac4480a25b55de42d938df09x.jpg?impolicy=resize&w=650'),
+    (2019, 'Toyota', 'Tacoma', 'Truck', '$27,139', '24,983', '3.5L V-6 Cyl', 'Automatic', 'Silver Sky', 'Gray', 'https://pictures.dealer.com/e/echoparkthornton/1928/2155c309d4c245525cf56e5c6111f453x.jpg?impolicy=resize&w=650'),
+    (2019, 'Toyota', 'Tacoma', 'Truck', '$28,109', '13,498 ', '3.5L V-6 Cyl', 'Automatic', 'Red', 'Black', 'https://pictures.dealer.com/e/echoparkthornton/0769/8f5684cc226bef40f1b21932847a2288x.jpg?impolicy=resize&w=650'),
+    (2019, 'Toyota', 'Tacoma', 'Truck', '$28,589', '23,851', '3.5L V-6 Cyl', 'Automatic', 'Super White', 'Cement Gray', 'https://pictures.dealer.com/e/echoparkthornton/0220/159e4f721a8f44b6938b048e315cf1c4x.jpg?impolicy=resize&w=650'),
+    (2019, 'Toyota', 'Tacoma', 'Truck', '$28,989', '20,756', '3.5L V-6 Cyl', 'Automatic', 'Midnight Black', 'Cement Gray', 'https://pictures.dealer.com/e/echoparkthornton/0176/612056c719b93b0b060329212967a1a2x.jpg?impolicy=resize&w=650'),
+    (2016, 'Ford', 'F-150', 'Truck', '$27,289', '36,895', '2.7L V-6 Cyl', 'Automatic', 'Gray', 'Black', 'https://pictures.dealer.com/e/echoparkthornton/0537/53e9639ff4105cca2bd71e594c29662dx.jpg?impolicy=resize&w=650'),
+    (2019, 'Ford', 'F-150', 'Truck', '$27,849', '38,812', '3.5L V-6 Cyl', 'Automatic', 'Race Red', 'Black', 'https://pictures.dealer.com/e/echoparkthornton/0955/885fa2bd88925230833c429e5fd0e903x.jpg?impolicy=resize&w=650'),
+    (2017, 'Ford', 'F-150', 'Truck', '$28,789', '36,521', '2.7L V-6 Cyl', 'Automatic', 'Shadow Black', 'Black', 'https://pictures.dealer.com/e/echoparkthornton/1353/f38051b7400250cc3bed88a37683dce8x.jpg?impolicy=resize&w=650'),
+    (2017, 'Ford', 'F-150', 'Truck', '$29,939', '21,716', '2.7L V-6 Cyl', 'Automatic', 'Ingot Silver', 'Black', 'https://pictures.dealer.com/e/echoparkthornton/1688/c0116887de83aafd55e319885f322c3dx.jpg?impolicy=resize&w=650'); 
 

@@ -14,7 +14,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: `${process.env.DB}`
+    database: `similar_vehicles`
 }); 
 
 connection.connect((err) => {
