@@ -36,7 +36,6 @@ class App extends React.Component{
     render() {
         return(
             <div className="similarVehiclesContainer">
-                <h1>Similar Vehicles</h1>
                 <SimilarVehicles similarVehicles={this.state.similarVehicles}/> 
             </div>
         ); 

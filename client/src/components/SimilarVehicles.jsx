@@ -21,8 +21,8 @@ const SimilarVehicles = (props) => {
         ); 
     }); 
     return(
-        <div>
-            {SimilarVehiclesItemComponents}
+        <div class="row">
+        {SimilarVehiclesItemComponents}
         </div>
     ); 
 }; 
