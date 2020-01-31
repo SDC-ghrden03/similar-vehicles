@@ -2,23 +2,27 @@ import React from 'react';
 
 const SimilarVehiclesItem = (props) => {
     return (
-        <div class="similar-vehicle column">
-            <img
-                src={props.picture}
-                alt=""
-                width="250" 
-                height="200"
-            />
-            <h3 class="first-glance-description">
-                <a>
-                {props.year} {props.make} {props.model} {props.class}
-                </a>
-            </h3>
-                <ul class="pricing">
-                  <li>
-                    <strong class="price h3">{props.price} </strong>
-                  </li>
-                </ul>
+        <div className="car">
+            <div className="photo">
+                <img
+                    src={props.picture}
+                    alt=""
+                    width="250" 
+                    height="200"
+                />
+            </div>
+            <div className="info">
+                <h3 class="first-glance-description">
+                    <a>
+                    {props.year} {props.make} {props.model} {props.class}
+                    </a>
+                </h3>
+                    <ul class="pricing">
+                    <li>
+                        <strong className="priceH3">{props.price} </strong>
+                    </li>
+                    </ul>
+            </div>
             <div class="desc">
                 <ul class="similar-vehicles-details">
                 <li class="odometer">

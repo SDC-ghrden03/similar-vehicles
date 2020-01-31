@@ -1,1 +1,44 @@
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.car {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  flex: 0 0 275px;
+}
+
+.car img {
+  width: 250px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  background: #333e47;
+  align-items: center;
+  padding: 10px;
+  width: 275px;
+}
+
+.photo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+h3 {
+  color: white;
+}
+
+.priceH3 {
+  color: white;
+}
+
+li {
+  list-style-type: none;
+}
