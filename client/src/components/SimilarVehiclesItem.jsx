@@ -2,7 +2,7 @@ import React from 'react';
 
 const SimilarVehiclesItem = (props) => {
     return (
-        <div className="car">
+        <div className="car hvr-sweep-to-top">
             <div className="photo">
                 <img
                     src={props.picture}
@@ -22,45 +22,6 @@ const SimilarVehiclesItem = (props) => {
                         <strong className="priceH3">{props.price} </strong>
                     </li>
                     </ul>
-            </div>
-            <div class="desc">
-                <ul class="similar-vehicles-details">
-                <li class="odometer">
-                    <i class="ddc-icon ddc-icon-odometer"></i>
-                    <strong class="title 0">
-                    Mileage:
-                    </strong>
-                    <span class="value">{props.miles} miles</span>
-                </li>
-                <li class="engine">
-                    <i class="ddc-icon ddc-icon-engine"></i>
-                    <strong class="title 1">
-                    Engine:
-                    </strong>
-                    <span class="value">{props.engine_L_Cyl}</span>
-                </li>
-                <li class="transmission">
-                    <i class="ddc-icon ddc-icon-transmission"></i>
-                    <strong class="title 2">
-                    Transmission:
-                    </strong>
-                    <span class="value">{props.transmission}</span>
-                </li>
-                <li class="exteriorColor">
-                    <i class="ddc-icon ddc-icon-exteriorcolor"></i>
-                    <strong class="title 3">
-                    Exterior Color:
-                    </strong>
-                    <span class="value">{props.exterior_color}</span>
-                </li>
-                <li class="interiorColor">
-                    <i class="ddc-icon ddc-icon-interiorcolor"></i>
-                    <strong class="title 4">
-                    Interior Color:
-                    </strong>
-                    <span class="value">{props.interior_color}</span>
-                </li>
-                </ul>
             </div>
         </div>
 
