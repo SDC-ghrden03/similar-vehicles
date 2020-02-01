@@ -1,13 +1,17 @@
 import React from 'react';
 import SimilarVehicles from './SimilarVehicles.jsx';
 
+
 class App extends React.Component{
     constructor(props) {
         super(props); 
         this.state = {
-            similarVehicles: []
+            similarVehicles: [], 
+            hover: false
         }; 
 
+        this.onMouseOut = this.onMouseOut.bind(this); 
+        this.onMouseOver = this.onMouseOver.bind(this); 
         this.getSimilarVehicles = this.getSimilarVehicles.bind(this); 
     } 
 
@@ -33,10 +37,32 @@ class App extends React.Component{
 
     }; 
 
+    onMouseOver() {
+        
+        this.setState(
+            {
+                hover: true
+            }
+        )
+    }; 
+
+    onMouseOut() {
+        
+        this.setState(
+            {
+                hover: false
+            }
+        )
+    }; 
+
     render() {
         return(
             <div className="similarVehiclesContainer">
-                <SimilarVehicles similarVehicles={this.state.similarVehicles}/> 
+                <SimilarVehicles 
+                similarVehicles={this.state.similarVehicles} 
+                hover={this.state.hover} 
+                onMouseOver={this.onMouseOver} 
+                onMouseOut={this.onMouseOut} /> 
             </div>
         ); 
     } 

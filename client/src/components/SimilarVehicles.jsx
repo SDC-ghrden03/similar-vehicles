@@ -17,6 +17,9 @@ const SimilarVehicles = (props) => {
                 exterior_color={vehicle.exterior_color}
                 interior_color={vehicle.interior_color}
                 picture={vehicle.picture}
+                onMouseOver={props.onMouseOver}
+                hover={props.hover}
+                onMouseOut={props.onMouseOut}
             />
         ); 
     }); 

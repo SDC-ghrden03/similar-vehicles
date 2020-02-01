@@ -1,3 +1,12 @@
+h1 {
+  font-family: "DDC Heading Font Face";
+  font-weight: normal;
+}
+
+body {
+  background-color: #f6f0e3;
+}
+
 .cars {
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
-  flex: 0 0 275px;
+  flex: 0 0 250px;
 }
 
 .car img {
@@ -21,9 +30,19 @@
   flex-direction: column;
   background: #333e47;
   align-items: center;
+  padding: 0px;
+  width: 275px;
+  height: 100px;
+}
+
+.mouseOverInfo {
+  display: flex;
+  flex-direction: column;
+  background: #333e47;
+  align-items: center;
   padding: 5px;
   width: 240px;
-  height: 100px;
+  height: 50px;
 }
 
 .photo {
@@ -34,14 +53,25 @@
 
 h3 {
   color: white;
+  text-align: center;
 }
 
-.priceH3 {
+h4 {
   color: white;
+  text-align: center;
 }
 
 li {
   list-style-type: none;
+}
+
+.hoverDescription {
+  color: white;
+  text-align: center;
+}
+
+.fa-car {
+  color: black;
 }
 
 .hvr-sweep-to-top {
@@ -58,11 +88,12 @@ li {
   transition-property: color;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  background: #f6f0e4;
+  background: #fff;
   padding: 8px 15px;
   color: #fff;
   text-decoration: none;
 }
+
 .hvr-sweep-to-top:before {
   content: "";
   position: absolute;
@@ -83,11 +114,13 @@ li {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .hvr-sweep-to-top:hover,
 .hvr-sweep-to-top:focus,
 .hvr-sweep-to-top:active {
   color: white;
 }
+
 .hvr-sweep-to-top:hover:before,
 .hvr-sweep-to-top:focus:before,
 .hvr-sweep-to-top:active:before {
