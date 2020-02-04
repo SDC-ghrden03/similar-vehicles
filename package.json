@@ -25,6 +25,8 @@
     "webpack": "^2.7.0"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
     "dotenv": "^8.2.0",
     "eslint-config-airbnb": "^18.0.1",
     "express": "^4.15.0",
@@ -32,8 +34,8 @@
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "nodemon": "^2.0.2",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "sqlite3": "^4.0.6"
   },
   "jest": {
@@ -42,6 +44,9 @@
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }
