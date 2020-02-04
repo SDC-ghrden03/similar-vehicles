@@ -5,18 +5,18 @@ const SimilarVehiclesItem = (props) => {
     if(props.hover === false) {
         return (
         <div className="car hvr-sweep-to-top" onMouseOver={props.onMouseOver}>
-            <div className="photo">
+            <div className="media">
                 <img
                     src={props.picture}
                     alt=""
-                    width="250" 
-                    height="200"
+                    width="300" 
+                    height="230"
                 />
             </div>
             <div className="info">
-                <p className="first-glance-description">
+                <h3 className="first-glance-description">
                     {props.year} {props.make} {props.model} {props.class}
-                </p>
+                </h3>
                     <h3>
                        <a>{props.price}</a>
                     </h3>
@@ -33,40 +33,30 @@ const SimilarVehiclesItem = (props) => {
                 </h3>
                 <ul className="similar-vehicles-details">
                 <li className="odometer">
-                    <strong className="title 0">
-                    Miles:
-                    </strong>
-                    <span className="value">{props.miles}</span>
+                    <i className="fas fa-tachometer-alt"></i>
+                    <span className="value">&nbsp; &nbsp; {props.miles} miles</span>
                 </li>
                 <li className="engine">
-                    <i className="ddc-icon ddc-icon-engine"></i>
-                    <strong className="title 1">
-                    Engine:
-                    </strong>
-                    <span className="value">{props.engine_L_Cyl}</span>
+                    <i className="fas fa-cogs"></i>
+                    <span className="value">&nbsp; &nbsp; {props.engine_L_Cyl}</span>
                 </li>
                 <li className="transmission">
-                    <i className="ddc-icon ddc-icon-transmission"></i>
-                    <strong className="title 2">
-                    Transmission:
-                    </strong>
-                    <span className="value">{props.transmission}</span>
+                    <i className="fas fa-car-battery"></i>
+                    <span className="value">&nbsp; &nbsp; {props.transmission}</span>
                 </li>
                 <li className="exteriorColor">
-                    <i className="ddc-icon ddc-icon-exteriorcolor"></i>
-                    <strong className="title 3">
-                    Exterior Color:
-                    </strong>
-                    <span className="value">{props.exterior_color}</span>
+                    <i className="fas fa-paint-roller"></i>
+                    <span className="value">&nbsp; &nbsp; {props.exterior_color}</span>
                 </li>
                 <li className="interiorColor">
-                    <i className="ddc-icon ddc-icon-interiorcolor"></i>
-                    <strong className="title 4">
-                    Interior Color:
-                    </strong>
-                    <span className="value">{props.interior_color}</span>
+                    <i className="fas fa-paint-brush"></i>
+                    <span className="value">&nbsp; &nbsp; {props.interior_color}</span>
                 </li>
                 </ul>
+
+                <a className="view-details" href="https://www.echopark.com/">
+                    View Details
+                </a>
             </div>
         )
     }
