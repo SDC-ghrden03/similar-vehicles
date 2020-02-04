@@ -15,11 +15,13 @@ const SimilarVehiclesItem = (props) => {
             </div>
             <div className="info">
                 <h3 className="first-glance-description">
+                    <a className="car-description">
                     {props.year} {props.make} {props.model} {props.class}
+                    <br />
+                    <br />
+                    </a>
+                    <a>{props.price}</a>
                 </h3>
-                    <h3>
-                       <a>{props.price}</a>
-                    </h3>
             </div>
         </div>
         );
@@ -27,29 +29,30 @@ const SimilarVehiclesItem = (props) => {
         return(
             <div className="desc car" onMouseOut={props.onMouseOut}>
                 <h3 className="hoverDescription mouseOverInfo">
-                    <a>
-                    {props.year} {props.make} {props.model} {props.class}
+                    <a className="car-description">
+                        {props.year} {props.make} {props.model} {props.class}
                     </a>
+                    <a>{props.price}</a>
                 </h3>
-                <ul className="similar-vehicles-details">
+                <ul className="similar-vehicles-details unordered-list">
                 <li className="odometer">
-                    <i className="fas fa-tachometer-alt"></i>
+                    <i className="fas fa-tachometer-alt fa-lg"></i>
                     <span className="value">&nbsp; &nbsp; {props.miles} miles</span>
                 </li>
                 <li className="engine">
-                    <i className="fas fa-cogs"></i>
+                    <i className="fas fa-cogs fa-lg"></i>
                     <span className="value">&nbsp; &nbsp; {props.engine_L_Cyl}</span>
                 </li>
                 <li className="transmission">
-                    <i className="fas fa-car-battery"></i>
+                    <i className="fas fa-car-battery fa-lg"></i>
                     <span className="value">&nbsp; &nbsp; {props.transmission}</span>
                 </li>
                 <li className="exteriorColor">
-                    <i className="fas fa-paint-roller"></i>
+                    <i className="fas fa-paint-roller fa-lg"></i>
                     <span className="value">&nbsp; &nbsp; {props.exterior_color}</span>
                 </li>
                 <li className="interiorColor">
-                    <i className="fas fa-paint-brush"></i>
+                    <i className="fas fa-paint-brush fa-lg"></i>
                     <span className="value">&nbsp; &nbsp; {props.interior_color}</span>
                 </li>
                 </ul>
