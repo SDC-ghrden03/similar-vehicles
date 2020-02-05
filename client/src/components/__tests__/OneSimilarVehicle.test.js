@@ -18,11 +18,23 @@ describe('Testing OneSimilarVehicle', () => {
     expect(wrapper).toBeTruthy();  
   })
 
-  it('Recieves Props', () => {
+  it('Recieves Year', () => {
     expect(wrapper.props(name)).toBeTruthy(); 
     console.log("Here are the props:", wrapper.props())
-    expect(wrapper.props().year).toBe('2020'); 
+    expect(wrapper.props().year).toBe('2020');  
   })
 
+  it('Recieves Props', () => {
+    wrapper = render(<OneSimilarVehicle 
+      />
+    )
+    expect(wrapper.props().model).toBeTruthy(); 
+  })
+
+  it('It checks the value of the given prop', () => {
+    wrapper = shallow(<OneSimilarVehicle includedProp="Success!"/>); 
+
+    expect(wrapper.prop('includedProp')).to.equal('Success!'); 
+  })
 
 })

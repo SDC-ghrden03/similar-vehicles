@@ -1,7 +1,6 @@
 import React from 'react'; 
 
 const OneSimilarVehicle = (props) => {
-  console.log(props);
     if(props.hover === false) {
         return (
         <div className="car hvr-sweep-to-top" onMouseOver={props.onMouseOver}>
