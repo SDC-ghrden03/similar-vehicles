@@ -14,7 +14,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: `${process.env.DB}`
+    database: `similar_vehicles`
 }); 
 
 connection.connect((err) => {
@@ -26,7 +26,7 @@ connection.connect((err) => {
 }); 
 
 app.get('/api/similar_vehicles', (req, res) => {
-    const condition = 'SUV'; 
+    const condition = 'Coupe'; 
 
     const getQueryString = `SELECT * FROM vehicle WHERE class = "${condition}" LIMIT 3`; 
 

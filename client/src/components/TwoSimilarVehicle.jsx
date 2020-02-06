@@ -1,6 +1,6 @@
 import React from 'react'; 
 
-const SimilarVehiclesItem = (props) => {
+const TwoSimilarVehicle = (props) => {
     
     if(props.hover === false) {
         return (
@@ -66,4 +66,4 @@ const SimilarVehiclesItem = (props) => {
              
 }; 
 
-export default SimilarVehiclesItem; 
+export default TwoSimilarVehicle; 

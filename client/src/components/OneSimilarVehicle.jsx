@@ -1,7 +1,6 @@
 import React from 'react'; 
 
-const SimilarVehiclesItem = (props) => {
-    
+const OneSimilarVehicle = (props) => {
     if(props.hover === false) {
         return (
         <div className="car hvr-sweep-to-top" onMouseOver={props.onMouseOver}>
@@ -66,4 +65,4 @@ const SimilarVehiclesItem = (props) => {
              
 }; 
 
-export default SimilarVehiclesItem; 
+export default OneSimilarVehicle; 
