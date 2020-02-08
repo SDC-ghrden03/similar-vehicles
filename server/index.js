@@ -3,7 +3,7 @@ const express = require('express');
 const mysql = require('mysql'); 
 const cors = require('cors');
 
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3008;
 const app = express(); 
 
 app.use(express.static(__dirname + '/../client/dist')); 
@@ -15,7 +15,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: `similar_vehicles`
+    database: 'similar_vehicles'
 }); 
 
 connection.connect((err) => {
