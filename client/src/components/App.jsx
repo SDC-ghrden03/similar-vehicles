@@ -26,8 +26,13 @@ class App extends React.Component {
     } 
 
     getSimilarVehicles() {
+
         this.setState({isLoading: true});
-        fetch('http://localhost:3008/api/similar_vehicles')
+        fetch('http://localhost:3008/api/similar_vehicles', {
+            query: {
+
+            }
+        })
         .then((results) => {
            return results.json()
         })

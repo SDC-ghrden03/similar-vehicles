@@ -28,9 +28,15 @@ connection.connect((err) => {
 
 app.get('/api/similar_vehicles', (req, res) => {
 
-    const condition = 'hatchback'; 
+    var types = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Truck', 'Van', 'Wagon', 'Other'];
 
-    const getQueryString = `SELECT * FROM vehicle WHERE class = "${condition}" LIMIT 3`; 
+    var index = Math.floor(Math.random() * types.length);
+
+    var carType = types[index];
+
+
+
+    const getQueryString = `SELECT * FROM vehicle WHERE class = "${carType}" LIMIT 3`; 
 
     connection.query(getQueryString, (err, results) => {
         if (err) {
@@ -42,8 +48,6 @@ app.get('/api/similar_vehicles', (req, res) => {
 }); 
 
 app.post('/api/add_vehicle', (req, res) => {
-    var idNum = 102;
-    console.log(req.query);
     const bod = req.query;
     const postQueryString = `INSERT INTO vehicle (year, make, model, class, price, miles, engine_L_Cyl, transmission, exterior_color, interior_color, picture) VALUES (${bod.year}, ${bod.make}, ${bod.model}, ${bod.class}, ${bod.price}, ${bod.miles}, ${bod.engine_L_Cyl}, ${bod.transmission}, ${bod.exterior_color}, ${bod.interior_color}, ${bod.picture})`
     
@@ -51,9 +55,8 @@ app.post('/api/add_vehicle', (req, res) => {
         if (err) {
             res.status(400).send(err);
         } else {
-            res.status(200);
+            res.status(200).send('Database item added');
         }
-        idNum++;
     });
 });
 
