@@ -60,9 +60,8 @@ app.post('/api/similar_vehicles/add_vehicle', (req, res) => {
 
 app.put('/api/similar_vehicles/mod_vehicle', (req, res) => {
     
-    console.log(req.query);
-
-    const putQueryString = `UPDATE vehicle SET make = 'Chevy' WHERE id = 104`
+    // console.log(req.query);
+    const putQueryString = `UPDATE vehicle SET make = 'Chevy' WHERE miles = '90,200'`
 
     connection.query(putQueryString, (err, results) => {
         if (err) {
@@ -75,6 +74,15 @@ app.put('/api/similar_vehicles/mod_vehicle', (req, res) => {
 
 app.delete('/api/similar_vehicles/delete_vehicle', (req, res) => {
     
+    const delQueryString = `DELETE FROM vehicle WHERE id = ${req.query.id}`
+
+    connection.query(delQueryString, (err, results) => {
+        if (err) {
+            res.status(400).send(err);
+        } else {
+            res.status(200).send(`Row deleted where id = ${req.query.id}`);
+        }
+    });
 }); 
 
 app.listen(PORT, () => {
