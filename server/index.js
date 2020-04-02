@@ -12,10 +12,10 @@ app.use(cors());
 
 // Database integration 
 let connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'similar_vehicles'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB
+    // password: process.env.DB_PASS
 }); 
 
 connection.connect((err) => {
