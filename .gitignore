@@ -12,4 +12,5 @@ node_modules
 # Bundled Files
 client/dist/bundle.js
 
-
+# testing file
+example.js

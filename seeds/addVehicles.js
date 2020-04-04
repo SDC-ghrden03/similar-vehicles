@@ -1,12 +1,14 @@
 const faker = requre('faker');
 const pics = require('./seedPictures.js');
 
+// Vehicle constants for generating random vehicles
 const makes = ['Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Jeep', 'Kia', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 const classes = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Truck', 'Van', 'Wagon', 'Other'];
 const engines = ['3.5L V-6 Cyl', '2.4L I-4 Cyl','1.8L I-4 Cyl', '2.0L H-4 Cyl', '3.6L V-6 Cyl', '2.7L V-6 Cyl', '4.3L V-6 Cyl'];
 const transmissions = ['Automatic', 'Manual'];
 
-const onFakeVehicle = () => {
+// fake vehicle object generating function
+const oneFakeVehicle = () => {
   result = {};
   result.year = randValGen(2020, 1991);
   result.make = makes[Math.floor(Math.random() * makes.length)];
@@ -19,17 +21,31 @@ const onFakeVehicle = () => {
   result.exterior_color = faker.commerce.color();
   result.interior_color = faker.commerce.color();
   result.picture = pics.pics[Math.floor(Math.random() * pictures.length)];
+
+  return result;
 }
 
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+function batch() {
+  // creates array of 100
+  var batchOfVehicles = [];
+  // # of vehicles to generate
+  var vehicleCount = 100;
+
+  for (var i = 0; i < vehicleCount; i++) {
+    batchOfVehicles.push(oneFakeVehicle());
+  }
+
+  return batchOfVehicles;
+}
+
+// knex seed
+exports.seed = async function(knex, Promise) {
+  var loopCount = 0;
+  // storage of generated vehicles before inserting them into the db
+  while (loopCount < 100) {
+    var thisBatch = batch();
+    await knex('similar_vehicles').insert(thisBatch);
+    loopCount++;
+  }
+
 };
