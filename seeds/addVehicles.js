@@ -1,5 +1,5 @@
-const faker = requre('faker');
-const pics = require('./seedPictures.js');
+const faker = require('faker');
+const pics = require('../seedPictures.js');
 
 // Vehicle constants for generating random vehicles
 const makes = ['Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Jeep', 'Kia', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
@@ -10,7 +10,7 @@ const transmissions = ['Automatic', 'Manual'];
 // fake vehicle object generating function
 const oneFakeVehicle = () => {
   result = {};
-  result.year = randValGen(2020, 1991);
+  result.year = Math.floor(Math.random() * (2020 - 1991)) + 1991;
   result.make = makes[Math.floor(Math.random() * makes.length)];
   result.model = faker.name.firstName();
   result.class = classes[Math.floor(Math.random() * classes.length)];
@@ -20,7 +20,7 @@ const oneFakeVehicle = () => {
   result.transmission = Math.floor(Math.random() * transmissions.length);
   result.exterior_color = faker.commerce.color();
   result.interior_color = faker.commerce.color();
-  result.picture = pics.pics[Math.floor(Math.random() * pictures.length)];
+  result.picture = pics.pics[Math.floor(Math.random() * pics.pics.length)];
 
   return result;
 }
