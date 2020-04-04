@@ -29,7 +29,7 @@ function batch() {
   // creates array of 100
   var batchOfVehicles = [];
   // # of vehicles to generate
-  var vehicleCount = 100;
+  var vehicleCount = 1000;
 
   for (var i = 0; i < vehicleCount; i++) {
     batchOfVehicles.push(oneFakeVehicle());
@@ -42,7 +42,7 @@ function batch() {
 exports.seed = async function(knex, Promise) {
   var loopCount = 0;
   // storage of generated vehicles before inserting them into the db
-  while (loopCount < 100) {
+  while (loopCount < 10000) {
     var thisBatch = batch();
     await knex('similar_vehicles').insert(thisBatch);
     loopCount++;
