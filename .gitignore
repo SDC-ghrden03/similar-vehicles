@@ -1,6 +1,16 @@
-node_modules
+# ENV files
 .env
+
+# Node Modules
+node_modules
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Bundled Files
+client/dist/bundle.js
+
+# testing file
+example.js
