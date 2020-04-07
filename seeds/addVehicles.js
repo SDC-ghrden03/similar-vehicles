@@ -16,8 +16,8 @@ const oneFakeVehicle = () => {
   result.class = classes[Math.floor(Math.random() * classes.length)];
   result.price = '$' + faker.commerce.price();
   result.miles = faker.random.number();
-  result.engine_L_Cyl = Math.floor(Math.random() * engines.length);
-  result.transmission = Math.floor(Math.random() * transmissions.length);
+  result.engine_L_Cyl = engines[Math.floor(Math.random() * engines.length)];
+  result.transmission = transmissions[Math.floor(Math.random() * transmissions.length)];
   result.exterior_color = faker.commerce.color();
   result.interior_color = faker.commerce.color();
   result.picture = pics.pics[Math.floor(Math.random() * pics.pics.length)];
