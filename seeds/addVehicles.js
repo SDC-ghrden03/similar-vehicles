@@ -1,3 +1,7 @@
+/* POSTGRES CLI HELP:
+* type 'psql postgres' to access the shell
+*/
+
 const faker = require('faker');
 const pics = require('../seedPictures.js');
 
