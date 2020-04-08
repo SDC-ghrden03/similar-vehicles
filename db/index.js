@@ -4,17 +4,17 @@ const mongoURI = 'mongodb://localhost:27017/similarVehicles';
 
 const db = mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true});
 
-db
-  .then(db => console.log(`Connected to: ${mongoURI}`))
-  .catch(err => {
-    console.log(`There was a problem connecting to mongo at: ${mongoURI}`);
-    console.log(err);
-  });
+// db
+//   .then(db => console.log(`Connected to: ${mongoURI}`))
+//   .catch(err => {
+//     console.log(`There was a problem connecting to mongo at: ${mongoURI}`);
+//     console.log(err);
+//   });
 
-// var gooseDB = mongoose.connection;
+var gooseDB = mongoose.connection;
 
-// gooseDB.on('error', console.error.bind(console, 'Connection error:'));
-// gooseDB.once('Connection Open', () => console.log('Connected to mongoDB'));
+gooseDB.on('error', console.error.bind(console, 'Connection error:'));
+gooseDB.once('Connection Open', () => console.log('Connected to mongoDB'));
 
 const similarVehicleSchema = new mongoose.Schema({
     year: Number,
