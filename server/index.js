@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
+const pool = require('../db/index.js');
 
 const PORT = process.env.PORT || 3008;
 const app = express();
@@ -10,11 +11,11 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
 app.use(cors());
 
-// Database integration
+/* MySQL Database integration
 let connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    database: process.env.DB
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    database: process.env.MYSQL_NAME
     // password: process.env.DB_PASS
 });
 
@@ -25,6 +26,7 @@ connection.connect((err) => {
         console.log('connected as id', connection.threadId);
     }
 });
+*/
 
 app.get('/api/similar_vehicles', (req, res) => {
     // randomly generate a car type
@@ -34,12 +36,13 @@ app.get('/api/similar_vehicles', (req, res) => {
     console.log(carType);
 
     // query the DB
-    const getQueryString = `SELECT * FROM vehicle WHERE class = "${carType}" LIMIT 3`;
-    connection.query(getQueryString, (err, results) => {
+    const getQueryString = `SELECT * FROM similar_vehicles WHERE class = '${carType}' LIMIT 3`;
+    pool.query(getQueryString, (err, results) => {
         if (err) {
             res.status(400).send(err);
         } else {
-            res.status(200).json({results: results});
+            // console.log(results.rows);
+            res.status(200).json(results.rows);
         }
     });
 });
@@ -49,7 +52,7 @@ app.post('/api/similar_vehicles/add_vehicle', (req, res) => {
     const bod = req.query;
     const postQueryString = `INSERT INTO vehicle (year, make, model, class, price, miles, engine_L_Cyl, transmission, exterior_color, interior_color, picture) VALUES (${bod.year}, ${bod.make}, ${bod.model}, ${bod.class}, ${bod.price}, ${bod.miles}, ${bod.engine_L_Cyl}, ${bod.transmission}, ${bod.exterior_color}, ${bod.interior_color}, ${bod.picture})`
 
-    connection.query(postQueryString, (err, results) => {
+    pool.query(postQueryString, (err, results) => {
         if (err) {
             res.status(400).send(err);
         } else {
@@ -63,7 +66,7 @@ app.put('/api/similar_vehicles/mod_vehicle', (req, res) => {
     // console.log(req.query);
     const putQueryString = `UPDATE vehicle SET make = 'Chevy' WHERE miles = '90,200'`
 
-    connection.query(putQueryString, (err, results) => {
+    pool.query(putQueryString, (err, results) => {
         if (err) {
             res.status(400).send(err);
         } else {
@@ -76,7 +79,7 @@ app.delete('/api/similar_vehicles/delete_vehicle', (req, res) => {
 
     const delQueryString = `DELETE FROM vehicle WHERE id = ${req.query.id}`
 
-    connection.query(delQueryString, (err, results) => {
+    pool.query(delQueryString, (err, results) => {
         if (err) {
             res.status(400).send(err);
         } else {
