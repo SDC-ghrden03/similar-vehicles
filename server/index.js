@@ -41,7 +41,6 @@ app.get('/api/similar_vehicles', (req, res) => {
         if (err) {
             res.status(400).send(err);
         } else {
-            // console.log(results.rows);
             res.status(200).json(results.rows);
         }
     });
