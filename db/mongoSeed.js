@@ -1,9 +1,6 @@
-/* POSTGRES CLI HELP:
-* type 'psql postgres' to access the shell
-*/
-
 const faker = require('faker');
 const pics = require('../seedPictures.js');
+const addManyVehicles = require('./index.js');
 
 // Vehicle constants for generating random vehicles
 const makes = ['Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Jeep', 'Kia', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
@@ -30,26 +27,24 @@ const oneFakeVehicle = () => {
 }
 
 function batch() {
-  // creates array of 100
-  var batchOfVehicles = [];
-  // # of vehicles to generate
-  var vehicleCount = 1000;
-
-  for (var i = 0; i < vehicleCount; i++) {
-    batchOfVehicles.push(oneFakeVehicle());
-  }
-
-  return batchOfVehicles;
+    var batchOfVehicles = [];
+    // # of vehicles to generate
+    var vehicleCount = 10000;
+    for (var i = 0; i < vehicleCount; i++) {
+        batchOfVehicles.push(oneFakeVehicle());
+    }
+    return batchOfVehicles;
 }
 
-// knex seed
-exports.seed = async function(knex, Promise) {
-  var loopCount = 0;
-  // storage of generated vehicles before inserting them into the db
-  while (loopCount < 10000) {
-    var thisBatch = batch();
-    await knex('similar_vehicles').insert(thisBatch);
-    loopCount++;
-  }
+async function seedVehicles() {
+    var loopCount = 0;
+    while (loopCount < 1000) {
+        var thisBatch = batch();
+        await addManyVehicles(thisBatch);
+        loopCount++;
+    }
+}
 
-};
+seedVehicles()
+    .then(data => console.log('SEED COMPLETE'))
+    .catch(err => console.log(err));
