@@ -6,7 +6,8 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "test": "jest --verbose --watch"
+    "test": "jest --verbose --watch",
+    "proxy": "nodemon proxy/server.js"
   },
   "author": "Lizbeth Anaya Ramos",
   "license": "ISC",
@@ -29,6 +30,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
+    "artillery": "^1.6.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint-config-airbnb": "^18.0.1",
@@ -38,6 +40,7 @@
     "mongoose": "^5.9.7",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
+    "newrelic": "^6.5.0",
     "nodemon": "^2.0.2",
     "pg": "^8.0.0",
     "react": "^16.12.0",

@@ -1,6 +1,8 @@
+require('newrelic');
 require('dotenv').config();
 const express = require('express');
-const mysql = require('mysql');
+// const mysql = require('mysql');
+const morgan = require('morgan');
 const cors = require('cors');
 const pool = require('../db/index.js');
 
@@ -28,7 +30,7 @@ connection.connect((err) => {
 });
 */
 
-app.get('/api/similar_vehicles', (req, res) => {
+app.get('/api/similar_vehicles/getThree', (req, res) => {
     // randomly generate a car type
     var types = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Truck', 'Van', 'Other'];
     var index = Math.floor(Math.random() * types.length);

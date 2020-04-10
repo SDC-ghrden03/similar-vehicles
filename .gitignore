@@ -14,3 +14,7 @@ client/dist/bundle.js
 
 # testing file
 example.js
+
+# new relic
+newrelic.js
+newrelic_agent.log
