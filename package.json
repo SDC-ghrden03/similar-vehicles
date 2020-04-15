@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js",
-    "test": "jest --verbose --watch"
+    "dev": "nodemon server/index.js",
+    "start": "node server/index.js",
+    "test": "jest --verbose --watch",
+    "proxy": "nodemon proxy/server.js"
   },
   "author": "Lizbeth Anaya Ramos",
   "license": "ISC",
@@ -38,10 +40,13 @@
     "mongoose": "^5.9.7",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
+    "newrelic": "^6.5.0",
     "nodemon": "^2.0.2",
     "pg": "^8.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "redis": "^3.0.2",
+    "response-time": "^2.3.2",
     "sqlite3": "^4.0.6"
   },
   "jest": {
@@ -54,5 +59,14 @@
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDC-ghrden03/similar-vehicles.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/SDC-ghrden03/similar-vehicles/issues"
+  },
+  "homepage": "https://github.com/SDC-ghrden03/similar-vehicles#readme"
 }

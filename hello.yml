@@ -1,0 +1,20 @@
+config:
+    target: 'http://localhost:3008'
+    phases:
+        - duration: 20
+          arrivalRate: 10
+          rampTo: 350
+          name: "Warm up the application"
+        - duration: 120
+          arrivalRate: 300 
+          name: "Sustain load: 300k for 120s"
+    defaults:
+      headers:
+        x-my-service-auth: '987401838271002188298567'
+scenarios:
+    - flow:
+
+      - get:
+          url: "/api/similar_vehicles/getThree"
+  
+  

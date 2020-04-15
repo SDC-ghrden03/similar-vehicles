@@ -10,16 +10,14 @@ const config = {
 
 const pool = new Pool(config);
 
+module.exports = {
+    query: (text, params, callback) => {
+        return pool.query(text, params, callback)
+    },
+};
+
 // pool.query('select * from similar_vehicles where id < 5 LIMIT 1', (err, res) => {
 //     if (err) console.log('ERROR: ', err);
 
 //     pool.end()
 // })
-
-
-module.exports = {
-    query: (text, params, callback) => {
-        // console.log(text);
-      return pool.query(text, params, callback)
-    },
-};
