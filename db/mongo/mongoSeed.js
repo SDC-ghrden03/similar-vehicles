@@ -1,5 +1,5 @@
 const faker = require('faker');
-const pics = require('../seedPictures.js');
+const pics = require('../../seedPictures.js');
 const addManyVehicles = require('./index.js');
 
 // Vehicle constants for generating random vehicles
