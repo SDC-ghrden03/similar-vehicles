@@ -29,19 +29,17 @@ app.get('/api/similar_vehicles/getThree', (req, res) => {
     var types = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Truck', 'Van', 'Other'];
     var index = Math.floor(Math.random() * types.length);
     var carType = types[index];
-    console.log(carType, '\n');
+    // console.log(carType);
     const getQueryString = `SELECT * FROM similar_vehicles WHERE class = '${carType}' LIMIT 3`;
     
     // check the redis cache for query result
     return client.get(`similar:${getQueryString}`, (err, result) => {
         if (result) {
             const resultJSON = JSON.parse(result);
-            // console.log(resultJSON);
             const resultArray = [];
             for (var i = 0; i < 3; i++) {
                 resultArray.push(resultJSON[i]);
             }
-            console.log('resultArray: ', resultArray);
             return res.status(200).json(resultArray);
         } else {
             // query the DB
@@ -50,7 +48,6 @@ app.get('/api/similar_vehicles/getThree', (req, res) => {
                     res.status(400).send(err);
                 } else {
                     // Save the DB response in Redis store
-                    console.log(results.rows);
                     const dbResponse = results.rows;
                     client.setex(`similar:${getQueryString}`, 3600, JSON.stringify({ source: 'Redis Cache', ...dbResponse, }));
                     res.status(200).json(dbResponse);
