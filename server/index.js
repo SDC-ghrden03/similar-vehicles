@@ -17,12 +17,12 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 
-const client = redis.createClient();
+const client = redis.createClient();  
 
 client.on('error', (err) => {
     console.log("ERROR: ", err);
 });
-    
+
 app.use(responseTime());
 
 app.get('/api/similar_vehicles/getThree', (req, res) => {
@@ -33,9 +33,11 @@ app.get('/api/similar_vehicles/getThree', (req, res) => {
     console.log(carType);
     const getQueryString = `SELECT * FROM similar_vehicles WHERE class = '${carType}' LIMIT 3`;
     
+    // /* Use a cache    
     // check the redis cache for query result
     return client.get(`similar:${getQueryString}`, (err, result) => {
         if (result) {
+            console.log("result cached");
             const resultJSON = JSON.parse(result);
             const resultArray = [];
             for (var i = 0; i < 3; i++) {
@@ -56,10 +58,11 @@ app.get('/api/similar_vehicles/getThree', (req, res) => {
             });
         }
     })
+    // */
 });
 
 app.post('/api/similar_vehicles/add_vehicle', (req, res) => {
-
+    
     const bod = req.query;
     const postQueryString = `INSERT INTO vehicle (year, make, model, class, price, miles, engine_L_Cyl, transmission, exterior_color, interior_color, picture) VALUES (${bod.year}, ${bod.make}, ${bod.model}, ${bod.class}, ${bod.price}, ${bod.miles}, ${bod.engine_L_Cyl}, ${bod.transmission}, ${bod.exterior_color}, ${bod.interior_color}, ${bod.picture})`
 
@@ -73,10 +76,10 @@ app.post('/api/similar_vehicles/add_vehicle', (req, res) => {
 });
 
 app.put('/api/similar_vehicles/mod_vehicle', (req, res) => {
-
+    
     // console.log(req.query);
     const putQueryString = `UPDATE vehicle SET make = 'Chevy' WHERE miles = '90,200'`
-
+    
     pool.query(putQueryString, (err, results) => {
         if (err) {
             res.status(400).send(err);
@@ -87,9 +90,9 @@ app.put('/api/similar_vehicles/mod_vehicle', (req, res) => {
 });
 
 app.delete('/api/similar_vehicles/delete_vehicle', (req, res) => {
-
+    
     const delQueryString = `DELETE FROM vehicle WHERE id = ${req.query.id}`
-
+    
     pool.query(delQueryString, (err, results) => {
         if (err) {
             res.status(400).send(err);
@@ -102,6 +105,19 @@ app.delete('/api/similar_vehicles/delete_vehicle', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Listening from: ${PORT}`);
 });
+
+/* No Cache PSQL
+// // query the DB
+// pool.query(getQueryString, (err, results) => {
+//     if (err) {
+//         res.status(400).send(err);
+//     } else {
+//         // Save the DB response in Redis store
+//         const dbResponse = results.rows;
+//         res.status(200).json(dbResponse);
+//     }
+// });
+*/
 
 /* MySQL Database integration
 let connection = mysql.createConnection({
