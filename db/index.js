@@ -10,18 +10,9 @@ const config = {
 };
 
 const pool = new Pool(config);
-
-
 */
 
-connection = {
-    host: 'ec2-13-57-5-221.us-west-1.compute.amazonaws.com',
-    database: 'similar_vehicles',
-    user: 'postgres',
-    password: 'Tp4kXaZMVLWs'
-}
-
-const pool = new Pool(connection);
+const pool = new Pool();
 
 module.exports = {
     query: (text, params, callback) => {
