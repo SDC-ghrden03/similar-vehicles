@@ -17,7 +17,10 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 
-const client = redis.createClient();  
+const client = redis.createClient({
+    host: 'redis',
+    port: 6379
+});  
 
 client.on('error', (err) => {
     console.log("ERROR: ", err);
@@ -26,6 +29,7 @@ client.on('error', (err) => {
 app.use(responseTime());
 
 app.get('/api/similar_vehicles/getThree', (req, res) => {
+    console.log('GET from GET THREE');
     // randomly generate a car type
     var types = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Truck', 'Van', 'Other'];
     var index = Math.floor(Math.random() * types.length);
@@ -60,6 +64,10 @@ app.get('/api/similar_vehicles/getThree', (req, res) => {
     })
     // */
 });
+
+
+
+
 
 app.post('/api/similar_vehicles/add_vehicle', (req, res) => {
     
@@ -106,17 +114,20 @@ app.listen(PORT, () => {
     console.log(`Listening from: ${PORT}`);
 });
 
+
+
+
 /* No Cache PSQL
-// // query the DB
-// pool.query(getQueryString, (err, results) => {
-//     if (err) {
-//         res.status(400).send(err);
-//     } else {
-//         // Save the DB response in Redis store
-//         const dbResponse = results.rows;
-//         res.status(200).json(dbResponse);
-//     }
-// });
+// query the DB
+pool.query(getQueryString, (err, results) => {
+    if (err) {
+        res.status(400).send(err);
+    } else {
+        // Save the DB response in Redis store
+        const dbResponse = results.rows;
+        res.status(200).json(dbResponse);
+    }
+});
 */
 
 /* MySQL Database integration

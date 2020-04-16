@@ -4,9 +4,9 @@
   "description": "Similar Vehicles",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -d --watch",
-    "webpack": "webpack -d",
-    "dev": "nodemon server/index.js",
+    "bundle-watch": "webpack -d --watch",
+    "bundle": "webpack -d",
+    "server-dev": "nodemon server/index.js",
     "start": "node server/index.js",
     "test": "jest --verbose --watch",
     "proxy": "nodemon proxy/server.js"
