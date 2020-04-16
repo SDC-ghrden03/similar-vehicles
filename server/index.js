@@ -14,6 +14,7 @@ const app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
+app.use(morgan('dev'));
 app.use(cors());
 
 const client = redis.createClient();
@@ -29,7 +30,7 @@ app.get('/api/similar_vehicles/getThree', (req, res) => {
     var types = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Truck', 'Van', 'Other'];
     var index = Math.floor(Math.random() * types.length);
     var carType = types[index];
-    // console.log(carType);
+    console.log(carType);
     const getQueryString = `SELECT * FROM similar_vehicles WHERE class = '${carType}' LIMIT 3`;
     
     // check the redis cache for query result

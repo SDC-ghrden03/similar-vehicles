@@ -11,6 +11,7 @@
     "proxy": "nodemon proxy/server.js"
   },
   "author": "Lizbeth Anaya Ramos",
+  "co-author": "Jim Walter",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.23.1",

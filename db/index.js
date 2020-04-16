@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
 
+/* Below works with local deployment
 const config = {
     database: 'similar_vehicles',
     user: process.env.DB_USER,
@@ -10,14 +11,20 @@ const config = {
 
 const pool = new Pool(config);
 
+
+*/
+
+connection = {
+    host: 'ec2-13-57-5-221.us-west-1.compute.amazonaws.com',
+    database: 'similar_vehicles',
+    user: 'postgres',
+    password: 'Tp4kXaZMVLWs'
+}
+
+const pool = new Pool(connection);
+
 module.exports = {
     query: (text, params, callback) => {
         return pool.query(text, params, callback)
     },
 };
-
-// pool.query('select * from similar_vehicles where id < 5 LIMIT 1', (err, res) => {
-//     if (err) console.log('ERROR: ', err);
-
-//     pool.end()
-// })
