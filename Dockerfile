@@ -14,6 +14,7 @@ COPY . /src/app
 RUN npm install
 RUN npm run bundle
 
+
 # What port will the container talk to the outside world with once created?
 EXPOSE 80
 

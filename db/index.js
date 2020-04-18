@@ -12,19 +12,7 @@ const config = {
 const pool = new Pool(config);
 */
 
-// PGHOST=ec2-13-57-5-221.us-west-1.compute.amazonaws.com
-// PGUSER=postgres
-// PGDATABASE=similar_vehicles
-// PGPASSWORD=Tp4kXaZMVLWs
-// PGPORT=5432
-
-const pool = new Pool({
-    host: 'ec2-13-57-5-221.us-west-1.compute.amazonaws.com',
-    user: 'postgres',
-    database: 'similar_vehicles',
-    password: 'Tp4kXaZMVLWs',
-    port: 5432
-});
+const pool = new Pool();
 
 module.exports = {
     query: (text, params, callback) => {

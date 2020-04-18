@@ -29,7 +29,6 @@ client.on('error', (err) => {
 app.use(responseTime());
 
 app.get('/api/similar_vehicles/getThree', (req, res) => {
-    console.log('GET from GET THREE');
     // randomly generate a car type
     var types = ['Sedan', 'SUV', 'Coupe', 'Hatchback', 'Truck', 'Van', 'Other'];
     var index = Math.floor(Math.random() * types.length);
@@ -145,14 +144,4 @@ connection.connect((err) => {
         console.log('connected as id', connection.threadId);
     }
 });
-
-
-
-{
-    "0":{"id":480889,"year":2010,"make":"Mercedes","model":"Greg","class":"Coupe","price":"$799.00","miles":"39713","engine_L_Cyl":"4.3L V-6 Cyl","transmission":"Manual","exterior_color":"silver","interior_color":"gold","picture":"https://pictures.dealer.com/e/echoparkthornton/1187/4b062ab8c8b4b27bd1e5a10111d56dabx.jpg?impolicy=resize&w=650"},
-    "1":{"id":480892,"year":2005,"make":"Chevrolet","model":"Cali","class":"Coupe","price":"$463.00","miles":"63364","engine_L_Cyl":"4.3L V-6 Cyl","transmission":"Automatic","exterior_color":"pink","interior_color":"orange","picture":"https://pictures.dealer.com/e/echoparkthornton/1717/896e28d8275428fc2d5d89c2f4f6f2c2x.jpg?impolicy=resize&w=650"},
-    "2":{"id":480894,"year":2000,"make":"Lexus","model":"Lacy","class":"Coupe","price":"$720.00","miles":"69707","engine_L_Cyl":"3.5L V-6 Cyl","transmission":"Manual","exterior_color":"black","interior_color":"olive","picture":"https://pictures.dealer.com/e/echoparkthornton/1793/8c173eb406666de66089a59e2b0368aex.jpg?impolicy=resize&w=650"},
-    "source":"Redis Cache"
-}
-
 */
