@@ -1,6 +1,9 @@
 # Used Car Similar Vehicle Service
 
 This is a Node.js application, built to render similar vehicle recommendations as part of a project for a used car website.
+## Features
+** gifs coming soon **
+
 
 ## Getting Started
 
@@ -35,6 +38,8 @@ REDIS_HOST=redis
 REDIS_PORT=6379
 ```
 7. Run the following to seed the database:
+#### NOTE: To decrease seeding time, change the parameters lines 36 and 49 of seeds/addVehicles.js. It is currently set to generate 10,000 vehicles.
+
 ```
 npx knex migrate:latest --env development
 ```
@@ -42,8 +47,6 @@ then
 ```
 npx knex seed:run --env development
 ```
-### NOTE: To decrease seeding time, change the parameters line 36 and 49 of /seeds/addVehicles.js. It is currently set to generate 10,000 vehicles.
-
 8.Once the db has seeded run:
 ```
 redis-server
