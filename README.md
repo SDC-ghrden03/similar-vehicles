@@ -1,56 +1,63 @@
 # Used Car Similar Vehicle Service
 
-One Paragraph of project description goes here
+This is a Node.js application, built to render similar vehicle recommendations as part of a project for a used car website.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+1. PostgreSQL
+2. Docker
+3. Redis
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+1. Fork and clone the repo.
+2. `cd` into `similar-vehicles`
+3. Install dependencies:
 
 ```
-until finished
+npm install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+4. Configure AWS Postgres instance. [GitHub Gist: How-to](https://gist.github.com/matt-winzer/266ae9930264faf8d02a065e9611b614)
+5. Create `.env` file in the root of the directory.
+6. Add the following params to `.env` file:
 ```
-Give an example
+PGHOST=[your instance info goes here]
+PGUSER=postgres
+PGDATABASE=similar_vehicles
+PGPASSWORD=[your instance info goes here]
+PGPORT=5432
+REDIS_HOST=redis
+REDIS_PORT=6379
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
+7. Run the following to seed the database:
 ```
-Give an example
+npx knex migrate:latest --env development
 ```
+then
+```
+npx knex seed:run --env development
+```
+### NOTE: To decrease seeding time, change the parameters line 36 and 49 of /seeds/addVehicles.js. It is currently set to generate 10,000 vehicles.
+
+8.Once the db has seeded run:
+```
+redis-server
+```
+9. In another terminal tab, from the root of the directory run:
+```
+npm run bundle-watch
+```
+10. In another terminal tab, from the root of the directory run:
+```
+npm run server-dev
+```
+11. Open a browser tab and go to localhost:3008
+
 
 ## Deployment
 
@@ -62,26 +69,10 @@ Add additional notes about how to deploy this on a live system
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
 ## Authors
 
 * **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used
-* Inspiration
-* etc
