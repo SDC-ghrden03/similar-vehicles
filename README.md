@@ -61,21 +61,12 @@ npm run server-dev
 ```
 11. Open a browser tab and go to localhost:3008
 
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* React
+* Express/Node
+* PostgreSQL
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
+* **Liz Anaya Ramos** - *Front End Component Design and Build* - [github](https://github.com/lizanaya92)
