@@ -2,7 +2,11 @@
 
 This is a Node.js application, built to render similar vehicle recommendations as part of a project for a used car website.
 ## Features
-** gifs coming soon **
+* Database holds 10,000,000 unique vehicle records
+* Redis cache improved query time by 400%
+* Achieved 1,000 RPS
+
+![site gif](https://github.com/SDC-ghrden03/similar-vehicles/blob/master/test.gif)
 
 
 ## Getting Started
