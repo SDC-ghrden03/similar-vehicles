@@ -4,7 +4,7 @@ This is a Node.js application, built to render similar vehicle recommendations a
 ## Features
 * Database holds 10,000,000 unique vehicle records
 * Redis cache improved query time by 400%
-* Achieved 1,000 RPS
+* Achieved 1,000 RPS on my local machine during stress testing
 
 ![site gif](https://github.com/SDC-ghrden03/similar-vehicles/blob/master/test.gif)
 
